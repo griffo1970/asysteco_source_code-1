@@ -1,7 +1,4 @@
 <h2>Importar Profesores desde CSV</h2>
-<?php
-require_once($dirs['inc'] . 'import-mysql-profesorado.php');
-?>
 <div id="response"
     class="<?php if(!empty($type)) { echo $type . " display-block"; } ?>">
     <?php if(!empty($message)) { echo $message; } ?>
