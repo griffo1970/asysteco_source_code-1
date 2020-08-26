@@ -71,7 +71,13 @@ class Asysteco
 
     function isLogged()
     {
-        if($_SESSION['logged'] === true && isset($_SESSION['Nombre']) && isset($_SESSION['Iniciales']) && $_SESSION['Nombre'] != '')
+		$subrootsplit = preg_split('/\//', $_SERVER['REQUEST_URI']);
+		$subroot = '/' . $subrootsplit[1];
+		preg_match('/^\/[A-Z]+$/i', $subroot) ? $subroot = $subroot : $subroot = '' ;
+
+		$Titulo = preg_split('/\//', $subroot);
+		$Titulo = $Titulo[1];
+        if($_SESSION['logged'] === true && $_SESSION['LID'] === "$Titulo" && isset($_SESSION['Nombre']) && isset($_SESSION['Iniciales']) && $_SESSION['Nombre'] != '')
         {
             return true;
         }
@@ -108,6 +114,7 @@ class Asysteco
     function Logout()
     {
         $_SESSION['logged'] = false;
+        unset($_SESSION['LID']);
         unset($_SESSION['Nombre']);
         unset($_SESSION['Tipo']);
         session_destroy();
@@ -192,8 +199,16 @@ class Asysteco
                                                     FROM $this->profesores INNER JOIN $this->perfiles ON $this->profesores.TIPO=$this->perfiles.ID 
                                                     WHERE Iniciales='$username' AND Password='$password'"))
                     {
+						$subrootsplit = preg_split('/\//', $_SERVER['REQUEST_URI']);
+						$subroot = '/' . $subrootsplit[1];
+						preg_match('/^\/[A-Z]+$/i', $subroot) ? $subroot = $subroot : $subroot = '' ;
+
+						$Titulo = preg_split('/\//', $subroot);
+						$Titulo = $Titulo[1];
                         $fila = $response->fetch_assoc();
+						
                         $_SESSION['logged'] = true;
+                        $_SESSION['LID'] = $Titulo;
                         $_SESSION['Iniciales'] = $fila['Iniciales'];
                         $_SESSION['ID'] = $fila['ID'];
                         $_SESSION['Nombre'] = $fila['Nombre'];
