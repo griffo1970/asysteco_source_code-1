@@ -29,7 +29,7 @@
         }
         else
         {
-            $ERR_MSG = $class->ERR_NETASYS;
+            $ERR_MSG = $class->ERR_ASYSTECO;
         }
 ?>
             <button type="submit" id="submit" name="import" class="btn btn-success">Importar</button>
@@ -47,7 +47,7 @@
     }
     else
     {
-        $ERR_MSG = $class->ERR_NETASYS;
+        $ERR_MSG = $class->ERR_ASYSTECO;
     }
 ?>
     <div id="todos-registros"></div>

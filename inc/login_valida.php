@@ -12,12 +12,12 @@ if($_POST['Iniciales'] != '' && $_POST['pass'] != '')
         }
         else
         {
-            $ERR_LOGIN_FORM = $class->ERR_NETASYS;
+            $ERR_LOGIN_FORM = $class->ERR_ASYSTECO;
         }
     }
     else
     {
-        $ERR_LOGIN_FORM = $class->ERR_NETASYS;
+        $ERR_LOGIN_FORM = $class->ERR_ASYSTECO;
     }
 }
 else

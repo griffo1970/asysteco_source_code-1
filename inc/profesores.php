@@ -109,7 +109,7 @@ if($_SESSION['Perfil'] === 'Admin')
  }
  else
  {
-   $ERR_MSG = $class->ERR_NETASYS;
+   $ERR_MSG = $class->ERR_ASYSTECO;
  }
 }
 else

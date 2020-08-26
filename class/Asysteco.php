@@ -1,6 +1,6 @@
 <?php
 
-class Netasys
+class Asysteco
 {
 	
     public $fichar = 'Fichar';
@@ -14,7 +14,7 @@ class Netasys
     public $mensajes = 'Mensajes';
  
     public $conex;
-    public $ERR_NETASYS;
+    public $ERR_ASYSTECO;
 
 
     function bdConex($host, $user, $pass, $db)
@@ -25,7 +25,7 @@ class Netasys
         }
         else
         {
-            $this->ERR_NETASYS = "Fallo al conectar a MySQL: (" . $this->conex->connect_errno . ") " . $this->conex->connect_error;
+            $this->ERR_ASYSTECO = "Fallo al conectar a MySQL: (" . $this->conex->connect_errno . ") " . $this->conex->connect_error;
             return false;
         }
     }
@@ -47,7 +47,7 @@ class Netasys
         }
         else
         {
-            $this->ERR_NETASYS = "ERR_CODE: " . $this->conex->errno . "<br>ERROR: " . $this->conex->error;
+            $this->ERR_ASYSTECO = "ERR_CODE: " . $this->conex->errno . "<br>ERROR: " . $this->conex->error;
             return false;
         }
     }
@@ -64,7 +64,7 @@ class Netasys
         }
         else
         {
-            $this->ERR_NETASYS = "ERR_CODE: " . $this->conex->errno . "<br>ERROR: " . $this->conex->error;
+            $this->ERR_ASYSTECO = "ERR_CODE: " . $this->conex->errno . "<br>ERROR: " . $this->conex->error;
             return false;
         }
     }
@@ -77,7 +77,7 @@ class Netasys
         }
         else
         {
-            $this->ERR_NETASYS = "Debe iniciar sesión.";
+            $this->ERR_ASYSTECO = "Debe iniciar sesión.";
             return false;
         }
     }
@@ -93,14 +93,14 @@ class Netasys
             }
             else
             {
-                $this->ERR_NETASYS = "Debes cambiar la contraseña.";
+                $this->ERR_ASYSTECO = "Debes cambiar la contraseña.";
                 return false;
             }
             
         }
         else
         {
-            $ERR_MSG = $class->ERR_NETASYS;
+            $ERR_MSG = $class->ERR_ASYSTECO;
             return false;
         }
     }
@@ -123,7 +123,7 @@ class Netasys
         }
         else
         {
-            $this->ERR_NETASYS = "Nombre no válido <br>";
+            $this->ERR_ASYSTECO = "Nombre no válido <br>";
             return false;
         }
     }
@@ -138,7 +138,7 @@ class Netasys
         }
         else
         {
-            $this->ERR_NETASYS = "DNI no válido <br>";
+            $this->ERR_ASYSTECO = "DNI no válido <br>";
             return false;
         }
     }
@@ -151,7 +151,7 @@ class Netasys
         }
         else
         {
-            $this->ERR_NETASYS = "Formato de fecha no válido. 
+            $this->ERR_ASYSTECO = "Formato de fecha no válido. 
             <br>
             Formato válido: dd/mm/AAAA";
             return false;
@@ -168,7 +168,7 @@ class Netasys
         }
         else
         {
-            $this->ERR_NETASYS = "Iniciales no válidas <br>";
+            $this->ERR_ASYSTECO = "Iniciales no válidas <br>";
             return false;
         }
     }
@@ -207,7 +207,7 @@ class Netasys
                 }
                 else
                 {
-                    $this->ERR_NETASYS = "Usuario o contraseña no válidos.";
+                    $this->ERR_ASYSTECO = "Usuario o contraseña no válidos.";
                     return false;
                 }
             }
@@ -308,7 +308,7 @@ class Netasys
         }
         else
         {
-            $this->ERR_NETASYS = "Error al obtener fecha.";
+            $this->ERR_ASYSTECO = "Error al obtener fecha.";
             return false;
         }
     }
@@ -324,7 +324,7 @@ class Netasys
         }
         else
         {
-            $this->ERR_NETASYS = "ERR_CODE: " . $this->conex->errno . "<br>ERROR: " . $this->conex->error;
+            $this->ERR_ASYSTECO = "ERR_CODE: " . $this->conex->errno . "<br>ERROR: " . $this->conex->error;
             return false;
         }
     }
@@ -563,7 +563,7 @@ class Netasys
                 }
                 else
                 {
-                    $this->ERR_NETASYS = "<span id='noqr' style='color: black; font-weight: bolder; background-color: orange;'><h3>Ya has fichado hoy.</h3></span>";
+                    $this->ERR_ASYSTECO = "<span id='noqr' style='color: black; font-weight: bolder; background-color: orange;'><h3>Ya has fichado hoy.</h3></span>";
                     return false;
                 }
             }
@@ -602,7 +602,7 @@ class Netasys
     function getHoraSalida()
     {
         $dia = $this->getDate();
-        $dia['weekday'] == 'Sabado' || $dia['weekday'] == 'Domingo' ? $this->ERR_NETASYS = "No puedes fichar fuera de Horario." : $dia['weekday'];
+        $dia['weekday'] == 'Sabado' || $dia['weekday'] == 'Domingo' ? $this->ERR_ASYSTECO = "No puedes fichar fuera de Horario." : $dia['weekday'];
         if($response = $this->query("SELECT $this->horarios.Hora_salida 
                                         FROM $this->horarios 
                                         INNER JOIN $this->profesores ON $this->horarios.ID_PROFESOR=$this->profesores.ID 
@@ -669,12 +669,12 @@ class Netasys
     {
         if(! $this->validFormName($_POST['Nombre']))
         {
-            $this->ERR_NETASYS = "Formato de Nombre incorrecto.";
+            $this->ERR_ASYSTECO = "Formato de Nombre incorrecto.";
             return false;
         }
         elseif(! $this->validFormIni($_POST['Iniciales']))
         {
-            $this->ERR_NETASYS = "Formato de iniciales incorrecto.";
+            $this->ERR_ASYSTECO = "Formato de iniciales incorrecto.";
             return false;
         }
         else
@@ -689,14 +689,14 @@ class Netasys
                 }
                 else
                 {
-                    $this->ERR_NETASYS;
+                    $this->ERR_ASYSTECO;
                     return false;
                 }
 
             }
             else
             {
-                $this->ERR_NETASYS = "No se pueden duplicar las iniciales.";
+                $this->ERR_ASYSTECO = "No se pueden duplicar las iniciales.";
                 return false;
             }
         }

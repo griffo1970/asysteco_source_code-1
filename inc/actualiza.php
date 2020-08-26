@@ -15,7 +15,7 @@ if($columna === 'Aula' || $columna === 'Grupo')
   $sql="UPDATE $tabla SET $columna='$texto' WHERE id='$id'";
   if(! $class->query($sql))
   {
-    $ERR_MSG = $class->ERR_NETASYS;
+    $ERR_MSG = $class->ERR_ASYSTECO;
   }
 }
 else
@@ -53,7 +53,7 @@ if(isset($sql) && $sql != '')
     }
     else
     {
-        echo $class->ERR_NETASYS;
+        echo $class->ERR_ASYSTECO;
     }
 }
 ?>

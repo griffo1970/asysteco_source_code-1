@@ -23,7 +23,7 @@ $dirs = [
 //     $bd->commit();
 //     $bd->autocommit(TRUE);
 // }
-// catch(Exception $ERR_NETASYS)
+// catch(Exception $ERR_ASYSTECO)
 // {
 //     $bd->rollback();
 // }

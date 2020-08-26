@@ -27,7 +27,7 @@ if($response = $class->query("SELECT ID, Iniciales, Nombre, Tutor, Activo, Susti
                     }
                     else
                     {
-                        echo "<span style='color:red;'>$class->ERR_NETASYS</span>";
+                        echo "<span style='color:red;'>$class->ERR_ASYSTECO</span>";
                     }
                     echo "</br><label>Activo</label></br>";
                     echo "<input type='text' class='hidden' id='Activo' name='Activo' value='$datos[Activo]'>";
@@ -80,7 +80,7 @@ if($response = $class->query("SELECT ID, Iniciales, Nombre, Tutor, Activo, Susti
  
 else
 {
-    $ERR_MSG = $class->ERR_NETASYS;
+    $ERR_MSG = $class->ERR_ASYSTECO;
 }
 
 ?>

@@ -21,7 +21,7 @@
     }
     else
     {
-        $ERR_MSG = $class->ERR_NETASYS;
+        $ERR_MSG = $class->ERR_ASYSTECO;
     }
     
     if($num_profesores_all = $class->query("SELECT count(ID) as total FROM $class->profesores"))
@@ -30,7 +30,7 @@
     }
     else
     {
-        $ERR_MSG = $class->ERR_NETASYS;
+        $ERR_MSG = $class->ERR_ASYSTECO;
     }
     echo "<h3>Profesores totales: $num_all[total]</h3>";
     echo "<h3>Profesores activos: $num_act[activos]</h3>";

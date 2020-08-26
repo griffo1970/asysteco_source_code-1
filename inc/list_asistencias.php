@@ -2,7 +2,7 @@
 
 if(! $response = $class->query("SELECT ID_PROFESOR FROM Marcajes WHERE Asiste=1 OR Asiste=2"))
 {
-    die($class->ERR_NETASYS);
+    die($class->ERR_ASYSTECO);
 }
 
 $page_size = 200;

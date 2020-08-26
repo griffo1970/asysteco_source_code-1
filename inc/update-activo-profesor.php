@@ -18,7 +18,7 @@ if($resp = $class->query("SELECT ID, Nombre, TIPO FROM $class->profesores WHERE 
             }
             else
             {
-                echo $class->ERR_NETASYS;
+                echo $class->ERR_ASYSTECO;
                 return false;
             }
         }
@@ -31,12 +31,12 @@ if($resp = $class->query("SELECT ID, Nombre, TIPO FROM $class->profesores WHERE 
         }
         else
         {
-            echo $class->ERR_NETASYS;
+            echo $class->ERR_ASYSTECO;
             return false;
         }
     }
 }
 else
 {
-    $ERR_MSG = $class->ERR_NETASYS;
+    $ERR_MSG = $class->ERR_ASYSTECO;
 }

@@ -60,7 +60,7 @@ if (isset($_POST["import"])) {
                     $sustituido)"))
                 {
                     $ERR_MSG = "<br>Error al importar datos desde CSV.<br>";
-                    $ERR_MSG .= $class->ERR_NETASYS;
+                    $ERR_MSG .= $class->ERR_ASYSTECO;
                 }
                 else
                 {

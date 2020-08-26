@@ -28,7 +28,7 @@ echo '<div class="container" id="botonera" style="margin-top:75px">';
                                 WHERE ID='$datos[ID]'";
                                 if(! $class->query($visto))
                                 {
-                                    $ERR_MSG = $class->ERR_NETASYS;
+                                    $ERR_MSG = $class->ERR_ASYSTECO;
                                 }
                             }
                         $sep = preg_split('/[ -]/', $datos['Fecha']);

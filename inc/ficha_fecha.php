@@ -1,7 +1,7 @@
 <?php
 if(! $response = $class->query("SELECT ID_PROFESOR FROM Fichar INNER JOIN Profesores ON Fichar.ID_PROFESOR=Profesores.ID"))
 {
-    die($class->ERR_NETASYS);
+    die($class->ERR_ASYSTECO);
 }
 
 $page_size = 200;

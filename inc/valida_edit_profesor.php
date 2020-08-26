@@ -16,7 +16,7 @@ if(isset($_POST['ID']) && $_POST['ID'] != '')
                     }
                     else
                     {
-                        $ERR_MSG = $class->ERR_NETASYS;
+                        $ERR_MSG = $class->ERR_ASYSTECO;
                     }
                 }
                 else
@@ -32,18 +32,18 @@ if(isset($_POST['ID']) && $_POST['ID'] != '')
                 }
                 else
                 {
-                    $ERR_MSG = $class->ERR_NETASYS;
+                    $ERR_MSG = $class->ERR_ASYSTECO;
                 }
             }
         }
         else
         {
-            $ERR_MSG = $class->ERR_NETASYS;
+            $ERR_MSG = $class->ERR_ASYSTECO;
         }
     }
     else
     {
-        $ERR_MSG = $class->ERR_NETASYS;
+        $ERR_MSG = $class->ERR_ASYSTECO;
     }
 }
 

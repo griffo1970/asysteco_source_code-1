@@ -39,7 +39,7 @@
                 }
                 else
                 {
-                    $ERR_MSG = $class->ERR_NETASYS;
+                    $ERR_MSG = $class->ERR_ASYSTECO;
                 }
 
                 if($nombre2 = $class->query("SELECT Nombre FROM Profesores WHERE ID='$datos_rec[ID_DESTINATARIO]'"))
@@ -49,7 +49,7 @@
                 }
                 else
                 {
-                    $ERR_MSG = $class->ERR_NETASYS;
+                    $ERR_MSG = $class->ERR_ASYSTECO;
                 }
 
                 if($datos_rec['ID_DESTINATARIO'] == $_SESSION['ID'] && $datos_rec['Leido'] == 0)
@@ -59,7 +59,7 @@
                             WHERE ID='$datos_rec[ID]'";
                     if(! $class->query($leido))
                     {
-                        $ERR_MSG = $class->ERR_NETASYS;
+                        $ERR_MSG = $class->ERR_ASYSTECO;
                     }
                 }
 
@@ -94,7 +94,7 @@
     }
     else
     {
-        $ERR_MSG = $class->ERR_NETASYS;
+        $ERR_MSG = $class->ERR_ASYSTECO;
     }
 
     echo '<div id="tabs-2">';
@@ -131,7 +131,7 @@
                 }
                 else
                 {
-                    $ERR_MSG = $class->ERR_NETASYS;
+                    $ERR_MSG = $class->ERR_ASYSTECO;
                 }
 
                 if($nombre2 = $class->query("SELECT Nombre FROM Profesores WHERE ID='$datos_env[ID_DESTINATARIO]'"))
@@ -141,7 +141,7 @@
                 }
                 else
                 {
-                    $ERR_MSG = $class->ERR_NETASYS;
+                    $ERR_MSG = $class->ERR_ASYSTECO;
                 }
 
                 if($datos_env['ID_DESTINATARIO'] == $_SESSION['ID'] && $datos_env['Leido'] == 0)
@@ -151,7 +151,7 @@
                             WHERE ID='$datos_env[ID]'";
                     if(! $class->query($leido))
                     {
-                        $ERR_MSG = $class->ERR_NETASYS;
+                        $ERR_MSG = $class->ERR_ASYSTECO;
                     }
                 }
 
@@ -186,7 +186,7 @@
     }
     else
     {
-        $ERR_MSG = $class->ERR_NETASYS;
+        $ERR_MSG = $class->ERR_ASYSTECO;
     }
                 echo "</div>";
             echo "</div>";

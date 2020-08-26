@@ -9,6 +9,6 @@ if(isset($_POST['Enviar']) && $_POST['Enviar'] == 'Agregar')
     }
     else
     {
-        $MSG = $class->ERR_NETASYS;
+        $MSG = $class->ERR_ASYSTECO;
     }
 }

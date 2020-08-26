@@ -18,7 +18,7 @@ echo '<div class="container" style="margin-top:75px">';
             }
             else
             {
-                $ERR_MSG = $class->ERR_NETASYS;
+                $ERR_MSG = $class->ERR_ASYSTECO;
             }
             echo "<button class='btn btn-info' value='Agregar-sustituto' name='ACTION'>Agregar Sustituto</button>";
             echo "</form>";

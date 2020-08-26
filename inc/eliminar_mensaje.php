@@ -17,17 +17,17 @@ if($res = $class->query("SELECT ID_PROFESOR FROM Mensajes WHERE ID='$_GET[ID]' A
                 }
                 else
                 {
-                    $ERR_MSG = $class->ERR_NETASYS;
+                    $ERR_MSG = $class->ERR_ASYSTECO;
                 }
             }
             else
             {
-                $ERR_MSG = $class->ERR_NETASYS;
+                $ERR_MSG = $class->ERR_ASYSTECO;
             }
         }
         else
         {
-            $ERR_MSG = $class->ERR_NETASYS;
+            $ERR_MSG = $class->ERR_ASYSTECO;
             
         }
     }   
@@ -43,7 +43,7 @@ if($res = $class->query("SELECT ID_PROFESOR FROM Mensajes WHERE ID='$_GET[ID]' A
                     }
                     else
                     {
-                        $ERR_MSG = $class->ERR_NETASYS;
+                        $ERR_MSG = $class->ERR_ASYSTECO;
                     }
                 }
                 else
@@ -54,7 +54,7 @@ if($res = $class->query("SELECT ID_PROFESOR FROM Mensajes WHERE ID='$_GET[ID]' A
                     }
                     else
                     {
-                        $ERR_MSG = $class->ERR_NETASYS;
+                        $ERR_MSG = $class->ERR_ASYSTECO;
                     }
                 }
             }
@@ -62,6 +62,6 @@ if($res = $class->query("SELECT ID_PROFESOR FROM Mensajes WHERE ID='$_GET[ID]' A
 }
 else
 {
-    $ERR_MSG = $class->ERR_NETASYS;
+    $ERR_MSG = $class->ERR_ASYSTECO;
 }
 

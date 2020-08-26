@@ -37,7 +37,7 @@ ORDER BY ID_PROFESOR, Dia, HORA_TIPO"))
             }
             else
             {
-                $ERR_MSG = $class->ERR_NETASYS;
+                $ERR_MSG = $class->ERR_ASYSTECO;
             }
             $campos = [
                         $datos['ID'],

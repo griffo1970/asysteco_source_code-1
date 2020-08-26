@@ -37,12 +37,12 @@ if($_SESSION['Perfil'] === 'Admin')
 {
     if(! $class->tempToValid())
     {
-        $ERR_MSG = $class->ERR_NETASYS;
+        $ERR_MSG = $class->ERR_ASYSTECO;
         $ERR_MSG .= "
         <br>
         <span class='glyphicon glyphicon-warning-sign'> </span> Contacta urgentemente con los administradores de la plataforma.
         <br>
-        <a href='mailto:alvaromelkunas9@gmail.com,ruizdeluna15@gmail.com,pedrogriffo1970@gmail.com?subject=Urgente%20NETASYS%20Horarios_Temporales&body=Ha%20surgido%20un%20problema%20al%20generar%20los%20horarios%20desde%20temporales.'>Enviar correo urgente</a>";
+        <a href='mailto:admin@asysteco.com?subject=Urgente%20ASYSTECO%20Horarios_Temporales&body=Ha%20surgido%20un%20problema%20al%20generar%20los%20horarios%20desde%20temporales.'>Enviar correo urgente</a>";
     }
 
     echo "<div class='row'>";

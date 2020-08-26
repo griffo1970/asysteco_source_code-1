@@ -41,13 +41,13 @@ if($result = $class->query($temp_table))
                         ";
         if(! $res = $class->query($temp_horario))
         {
-            $ERR_MSG = $class->ERR_NETASYS;
+            $ERR_MSG = $class->ERR_ASYSTECO;
         }
     }
 }
 else
 {
-    $ERR_MSG = $class->ERR_NETASYS;
+    $ERR_MSG = $class->ERR_ASYSTECO;
 }
 $consulta = 
 "SELECT T_horarios.*,
@@ -63,7 +63,7 @@ if($response = $class->query($consulta))
     {
         if(! $nombre = $class->query("SELECT Nombre, ID FROM $class->profesores WHERE ID='$_GET[profesor]'"))
         {
-            $ERR_MSG = $class->ERR_NETASYS;
+            $ERR_MSG = $class->ERR_ASYSTECO;
         }
         else
         {
@@ -99,7 +99,7 @@ if($response = $class->query($consulta))
                 }
                 else
                 {
-                    $ERR_MSG = $class->ERR_NETASYS;
+                    $ERR_MSG = $class->ERR_ASYSTECO;
                 }
                         /* 
                         * Comienza bucle por filas horarias 
@@ -164,7 +164,7 @@ if($response = $class->query($consulta))
                                         }
                                         else
                                         {
-                                            echo "<span style='color:red;'>$class->ERR_NETASYS</span>";
+                                            echo "<span style='color:red;'>$class->ERR_ASYSTECO</span>";
                                         }
                                         echo "<br>";
                                         echo "<b>Grupo:</b>";
@@ -180,7 +180,7 @@ if($response = $class->query($consulta))
                                         }
                                         else
                                         {
-                                            echo "<span style='color:red;'>$class->ERR_NETASYS</span>";
+                                            echo "<span style='color:red;'>$class->ERR_ASYSTECO</span>";
                                         }
                                         $k++;
 
@@ -205,7 +205,7 @@ if($response = $class->query($consulta))
                                             }
                                             else
                                             {
-                                                echo "<span style='color:red;'>$class->ERR_NETASYS</span>";
+                                                echo "<span style='color:red;'>$class->ERR_ASYSTECO</span>";
                                             }
                                             echo "<a style='color: red;' class='act' enlace='index.php?ACTION=edit-t-horario&act=del&ID=" . $filahora[$k][0] . "'>";
                                                 echo "<span class='glyphicon glyphicon-minus btn-react-del-group'></span>";
@@ -236,7 +236,7 @@ if($response = $class->query($consulta))
                             }
                             else
                             {
-                                $ERR_MSG = $class->ERR_NETASYS;
+                                $ERR_MSG = $class->ERR_ASYSTECO;
                             }
                         }
                 echo "</tbody>";
@@ -246,12 +246,12 @@ if($response = $class->query($consulta))
     }
     else
     {
-        $ERR_MSG = $class->ERR_NETASYS;
+        $ERR_MSG = $class->ERR_ASYSTECO;
     }
 }
 else
 {
-    $ERR_MSG = $class->ERR_NETASYS;
+    $ERR_MSG = $class->ERR_ASYSTECO;
 }
 ?>
         </div>

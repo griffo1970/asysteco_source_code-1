@@ -5,7 +5,7 @@
 
 if(! $n = $class->query("SELECT Nombre, ID FROM $class->profesores WHERE ID='$_GET[profesor]'")->fetch_assoc())
 {
-    $ERR_MSG = $class->ERR_NETASYS;
+    $ERR_MSG = $class->ERR_ASYSTECO;
 }
 if(isset($_GET['Tipo']) && $_GET['Tipo'] == 'M')
 {
@@ -108,7 +108,7 @@ echo "<div id='tabla_t_horario'>";
                                 }
                                 else
                                 {
-                                    echo "<span style='color:red;'>$class->ERR_NETASYS</span>";
+                                    echo "<span style='color:red;'>$class->ERR_ASYSTECO</span>";
                                 }
                                 echo "<br>";
                                 echo "<b>Grupo:</b>";
@@ -124,7 +124,7 @@ echo "<div id='tabla_t_horario'>";
                                 }
                                 else
                                 {
-                                    echo "<span style='color:red;'>$class->ERR_NETASYS</span>";
+                                    echo "<span style='color:red;'>$class->ERR_ASYSTECO</span>";
                                 }
                                 $k++;
 
@@ -149,7 +149,7 @@ echo "<div id='tabla_t_horario'>";
                                     }
                                     else
                                     {
-                                        echo "<span style='color:red;'>$class->ERR_NETASYS</span>";
+                                        echo "<span style='color:red;'>$class->ERR_ASYSTECO</span>";
                                     }
                                     echo "<a style='color: red;' class='act' enlace='index.php?ACTION=edit-crear-horario&act=del&ID=" . $filahora[$k][0] . "'>";
                                         echo "<span class='glyphicon glyphicon-minus btn-react-del-group'></span>";
@@ -180,7 +180,7 @@ echo "<div id='tabla_t_horario'>";
                     }
                     else
                     {
-                        $ERR_MSG = $class->ERR_NETASYS;
+                        $ERR_MSG = $class->ERR_ASYSTECO;
                     }
                 }
         echo "</tbody>";
