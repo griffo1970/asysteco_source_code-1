@@ -513,7 +513,7 @@ class Asysteco
             return false;
         }
         //$id = $_SESSION['ID'];
-        if($this->bdConex())
+        if($this->conex)
         {
             date_default_timezone_set('Europe/Madrid');
             $fecha = date('Y-m-d');
