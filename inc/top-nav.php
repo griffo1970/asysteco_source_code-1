@@ -76,9 +76,6 @@ echo '<nav class="navbar navbar-inverse navbar-fixed-top">';
         echo '<span class="icon-bar"></span>';
         echo '<span class="icon-bar"></span>';
       echo '</button>';
-
-      $Titulo = preg_split('/\//', $subroot);
-	    $Titulo = $Titulo[1];
       echo '<a class="navbar-brand" href="index.php">' . $Titulo . '</a>';
     echo '</div>';
     echo '<div class="collapse navbar-collapse" id="top-menu">';
