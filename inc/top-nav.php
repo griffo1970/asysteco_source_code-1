@@ -195,3 +195,5 @@ echo '<nav class="navbar navbar-inverse navbar-fixed-top">';
 echo '</nav>';
 
 include_once($dirs['public'] . 'js/animate.js');
+
+echo "<div id='flecha_div' class='flecha_div'><a href='#'><img id='flecha' class='flecha' src='recursos/flecha.png'/></a></div>";
