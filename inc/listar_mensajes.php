@@ -3,8 +3,8 @@
         echo "<h2>Mensajes</h2>";
         echo '<div id="tabs">';
             echo '<ul>';
-                echo '<li><a href="#tabs-1">Recibidos <span id="recibidos_badage" class="badge">0</span></a></li>';
-                echo '<li><a href="#tabs-2">Enviados <span id="enviados_badage" class="badge">0</span></a></li>';
+                echo '<li><a href="#tabs-1">Recibidos <span id="recibidos_badge" class="badge">0</span></a></li>';
+                echo '<li><a href="#tabs-2">Enviados <span id="enviados_badge" class="badge">0</span></a></li>';
             echo '</ul>';
             echo '<div id="tabs-1">';
 
@@ -17,7 +17,7 @@
         if ($response_rec->num_rows > 0)
         {
             echo "<script>";
-                echo "$('#recibidos_badage').html('$response_rec->num_rows')";
+                echo "$('#recibidos_badge').html('$response_rec->num_rows')";
             echo "</script>";
             echo"
                 <table class='table table-striped'>
@@ -112,7 +112,7 @@
         if ($response_env->num_rows > 0)
         {
             echo "<script>";
-                echo "$('#enviados_badage').html('$response_env->num_rows')";
+                echo "$('#enviados_badge').html('$response_env->num_rows')";
             echo "</script>";
             echo"
                 <table class='table table-striped'>
