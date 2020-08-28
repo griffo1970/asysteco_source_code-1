@@ -76,12 +76,12 @@ echo '<nav class="navbar navbar-inverse navbar-fixed-top">';
         echo '<span class="icon-bar"></span>';
         echo '<span class="icon-bar"></span>';
       echo '</button>';
-      echo '<a class="navbar-brand" href="index.php">' . $Titulo . '</a>';
-    echo '</div>';
-    echo '<div class="collapse navbar-collapse" id="top-menu">';
 
       if($_SESSION['Perfil'] === 'Admin')
       {
+        echo '<a class="navbar-brand" href="index.php">' . $Titulo . '</a>';
+      echo '</div>';
+      echo '<div class="collapse navbar-collapse" id="top-menu">';
         echo '<ul class="nav navbar-nav">';
           echo "<li class='$act_home'>";
             echo "<a href='index.php'><span class='glyphicon glyphicon-home'></span> Inicio</a>";
@@ -145,9 +145,17 @@ echo '<nav class="navbar navbar-inverse navbar-fixed-top">';
         $d = date('d');
         $m = date('m');
         $Y = date('Y');
+        echo "<a class='navbar-brand' href='$_SERVER[PHP_SELF]?ACTION=horarios'>$Titulo</a>";
+      echo '</div>';
+      echo '<div class="collapse navbar-collapse" id="top-menu">';
         echo '<ul class="nav navbar-nav">';
+
+        echo "<li class='$act_horario'>";
+          echo "<a href='$_SERVER[PHP_SELF]?ACTION=horarios'><span class='glyphicon glyphicon-home'></span> Inicio</a>";
+        echo "</li>";
+
           echo "<li class='$act_home'>";
-            echo "<a href='index.php'><span class='glyphicon glyphicon-home'></span> Inicio</a>";
+            echo "<a href='index.php'><span class='glyphicon glyphicon-eye-open'></span> Guardias</a>";
           echo "</li>";
 
           echo "<li class='dropdown $act_horario'><a class='dropdown-toggle' data-toggle='dropdown' href='#'><span class='glyphicon glyphicon-calendar'></span> Horario <span class='caret'></span></a>";
