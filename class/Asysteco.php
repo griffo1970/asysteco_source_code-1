@@ -549,7 +549,7 @@ class Asysteco
                     echo $this->ERR_ASYSTECO;
                     return false;
                 }
-                $this->ERR_ASYSTECO = "<span id='noqr' style='color: black; font-weight: bolder; background-color: red;'><h3>Su usuario está desactivado.</h3></span>";
+                $this->ERR_ASYSTECO = "<span id='noqr' style='color: black; font-weight: bolder; background-color: red;'><h3>Su usuario está desactivado su usuario.</h3></span>";
                 return false;
             }
             $sql = "SELECT DISTINCT
