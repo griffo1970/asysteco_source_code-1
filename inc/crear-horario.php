@@ -68,11 +68,11 @@ echo "<div id='tabla_t_horario'>";
                     */
 
                     if($response = $class->query("SELECT $class->horarios.*, Diasemana.Diasemana, Diasemana.ID, $class->horas.Inicio, $class->horas.Fin 
-                    FROM (($class->horarios INNER JOIN $class->profesores ON $class->horarios.ID_PROFESOR=$class->profesores.ID) 
-                    INNER JOIN Diasemana ON Diasemana.ID=$class->horarios.Dia)
-                    INNER JOIN $class->horas ON $class->horas.Hora=$class->horarios.HORA_TIPO
-                    WHERE $class->profesores.ID='$_GET[profesor]' AND ($class->horarios.HORA_TIPO=" . "'" . $hora ."M' OR $class->horarios.HORA_TIPO=" . "'" . $hora ."T')
-                    ORDER BY $class->horarios.HORA_TIPO, $class->horarios.Dia"))
+                        FROM (($class->horarios INNER JOIN $class->profesores ON $class->horarios.ID_PROFESOR=$class->profesores.ID) 
+                        INNER JOIN Diasemana ON Diasemana.ID=$class->horarios.Dia)
+                        INNER JOIN $class->horas ON $class->horas.Hora=$class->horarios.HORA_TIPO
+                        WHERE $class->profesores.ID='$_GET[profesor]' AND ($class->horarios.HORA_TIPO=" . "'" . $hora ."M' OR $class->horarios.HORA_TIPO=" . "'" . $hora ."T' OR $class->horarios.HORA_TIPO=" . "'" . $hora ."C')
+                        ORDER BY $class->horarios.HORA_TIPO, $class->horarios.Dia"))
                     {
                         // $k -> Contador de índice del array
                         $k = 0;
@@ -145,7 +145,7 @@ echo "<div id='tabla_t_horario'>";
                                 {
                                     echo "<br>";
                                     echo "<span id='sp2_" . $filahora[$k][0] . "_Grupo' class='txt'>" . $filahora[$k][6] . "</span>";
-                                    if($response2 = $class->query("SELECT DISTINCT $class->horarios.Grupo FROM $class->horarios WHERE $class->horarios.Grupo <> '' ORDER BY $class->horarios.Grupo"))
+                                    if($response2 = $class->query("SELECT DISTINCT $class->horarios.Grupo FROM $class->horarios WHERE $class->horarios.Grupo <> '' AND $class->horarios.Grupo <> 'Selec.' ORDER BY $class->horarios.Grupo"))
                                     {
                                         echo "<select id='in2_" . $filahora[$k][0] . "_Grupo' class='entrada' name='Grupo'>";
                                             while($fila = $response2->fetch_assoc())
