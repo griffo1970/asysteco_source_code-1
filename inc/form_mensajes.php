@@ -2,7 +2,7 @@
 ?>
 <div class="container-fluid" style="margin-top:50px">
     <div class="row">
-        <div class="col-xs-12 col-md-3">
+        <div class="col-xs-12 col-md-4">
         <a id="show">
             <div class="new_mess_container">
                 <span class="new_mess"></span>
