@@ -156,14 +156,6 @@ echo '<nav class="navbar navbar-inverse navbar-fixed-top">';
           echo "<li class='$act_home'>";
             echo "<a href='index.php'><span class='glyphicon glyphicon-eye-open'></span> Guardias</a>";
           echo "</li>";
-
-          echo "<li class='dropdown $act_horario'><a class='dropdown-toggle' data-toggle='dropdown' href='#'><span class='glyphicon glyphicon-calendar'></span> Horario <span class='caret'></span></a>";
-            echo '<ul class="dropdown-menu">';
-              echo "<li>";
-                echo "<a href='$_SERVER[PHP_SELF]?ACTION=horarios'><span class='glyphicon glyphicon-calendar'></span> Consultar horario</a>";
-              echo "</li>";
-            echo '</ul>';
-          echo '</li>';
           
           echo "<li class='$act_asistencia'>";
             echo "<a href='$_SERVER[PHP_SELF]?ACTION=asistencias&d=$d&m=$m&Y=$Y'><span class='glyphicon glyphicon-check'></span> Mis asistencias</a>";
