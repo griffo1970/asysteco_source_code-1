@@ -191,7 +191,7 @@ class Asysteco
         if($this->conex)
         {
             $password = $this->encryptPassword($password);
-            if($response = $this->query("SELECT ID FROM $this->profesores WHERE Iniciales='$username' AND Password='$password'"))
+            if($response = $this->query("SELECT ID FROM $this->profesores WHERE Iniciales='$username' AND Password='$password' AND Activo='1'"))
             {
                 if($response->num_rows == 1)
                 {
@@ -518,18 +518,18 @@ class Asysteco
 
     function FicharWeb()
     {
-        if($response = $this->query("SELECT ID FROM $this->profesores WHERE Iniciales='$_GET[abrev]' AND Password='$_GET[enp]'"))
-        {
-            $idprof = $response->fetch_assoc();
-            $id = $idprof['ID'];
-        }
-        else
-        {
-            return false;
-        }
-        //$id = $_SESSION['ID'];
         if($this->conex)
         {
+            if($response = $this->query("SELECT ID FROM $this->profesores WHERE Iniciales='$_GET[abrev]' AND Password='$_GET[enp]'"))
+            {
+                $idprof = $response->fetch_assoc();
+                $id = $idprof['ID'];
+            }
+            else
+            {
+                return false;
+            }
+
             date_default_timezone_set('Europe/Madrid');
             $fecha = date('Y-m-d');
             $hora = date('H:i:s');
@@ -539,6 +539,19 @@ class Asysteco
             $dia = $this->getDate();
             $hora_salida = $this->getHoraSalida();
 
+            $sql = "SELECT ID FROM $this->profesores WHERE ID='$id' AND Activo='1'";
+            if(! $this->query($sql)->num_rows == 1)
+            {
+                $msg = "Ha intentado Fichar estando desactivado.";
+                $notificacion = "INSERT INTO Notificaciones (ID_PROFESOR, Modificacion) VALUES ('$id', '$msg')";
+                if(! $this->query($notificacion))
+                {
+                    echo $this->ERR_ASYSTECO;
+                    return false;
+                }
+                $this->ERR_ASYSTECO = "<span id='noqr' style='color: black; font-weight: bolder; background-color: red;'><h3>Su usuario está desactivado.</h3></span>";
+                return false;
+            }
             $sql = "SELECT DISTINCT
                     $this->fichar.ID,
                     $this->horarios.Hora_salida 
@@ -550,8 +563,8 @@ class Asysteco
             {
                 if($response->num_rows == 0)
                 {
-                    $fichar = "INSERT INTO $this->fichar (ID_PROFESOR, F_entrada, F_Salida, HORA_CLASE, DIA_SEMANA, Fecha) 
-                                VALUES ($id, '$hora', '15:00:00', '$horaclase', '$dia[weekday]', '$fecha')";
+                    $fichar = "INSERT INTO $this->fichar (ID_PROFESOR, F_entrada, HORA_CLASE, DIA_SEMANA, Fecha) 
+                                VALUES ($id, '$hora', '$horaclase', '$dia[weekday]', '$fecha')";
 
                     if($response = $this->query($fichar))
                     {
