@@ -12,6 +12,8 @@ if($resp = $class->query("SELECT ID, Nombre, TIPO FROM $class->profesores WHERE 
         {
             if($class->query("UPDATE Profesores SET Activo=0 WHERE ID='$_GET[ID]'"))
             {
+                $msg = "Usuario desactivado.";
+                $class->notificar($_GET['ID'], $msg);
                 $MSG = "Cambios realizados correctamente.";
                 $_GET['profesor'] = $_GET['ID'];
                 include_once($dirs['inc'] . 'delete-horario-profesor.php');
@@ -27,6 +29,8 @@ if($resp = $class->query("SELECT ID, Nombre, TIPO FROM $class->profesores WHERE 
     {
         if($class->query("UPDATE Profesores SET Activo=1 WHERE ID='$_GET[ID]'"))
         {
+            $msg = "Usuario activado.";
+            $class->notificar($_GET['ID'], $msg);
             $MSG = "Cambios realizados correctamente.";
         }
         else
