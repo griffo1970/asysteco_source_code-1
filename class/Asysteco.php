@@ -518,7 +518,7 @@ class Asysteco
     function notificar($idprof, $msg)
     {
         $notificacion = "INSERT INTO Notificaciones (ID_PROFESOR, Modificacion) VALUES ('$idprof', '$msg')";
-        $this->query($notificacion)
+        $this->query($notificacion);
         return true;
     }
 
