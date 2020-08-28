@@ -28,20 +28,10 @@ fputcsv($fp, $titulo, $delimitador);
 if(isset($_GET['profesor']) && $_GET['profesor'] != '')
 {
     $sql = "SELECT ID_PROFESOR FROM Marcajes WHERE ID_PROFESOR = '$_GET[profesor]'";
-    $query = "SELECT Marcajes.*, Nombre, Iniciales, Diasemana.Diasemana
-            FROM (Marcajes INNER JOIN Profesores ON Marcajes.ID_PROFESOR=Profesores.ID)
-                INNER JOIN Diasemana ON Marcajes.Dia=Diasemana.ID
-            WHERE Profesores.Activo=1 AND  ID_PROFESOR = '$_GET[profesor]'
-            ORDER BY Profesores.Nombre ASC LIMIT $page_size OFFSET $offset_var"; # "select id from shipment Limit ".$page_size." OFFSET ".$offset_var;
 }
 else
 {
     $sql = "SELECT ID_PROFESOR FROM Marcajes";
-    $query = "SELECT Marcajes.*, Nombre, Iniciales, Diasemana.Diasemana
-            FROM (Marcajes INNER JOIN Profesores ON Marcajes.ID_PROFESOR=Profesores.ID)
-                INNER JOIN Diasemana ON Marcajes.Dia=Diasemana.ID
-            WHERE Profesores.Activo=1
-            ORDER BY Profesores.Nombre ASC LIMIT $page_size OFFSET $offset_var"; # "select id from shipment Limit ".$page_size." OFFSET ".$offset_var;
 }
 if(! $response = $class->query($sql))
 {
@@ -53,6 +43,22 @@ $count=ceil($total_records/$page_size);
 
 for($i=0; $i<=$count; $i++) {
 $offset_var = $i * $page_size;
+if(isset($_GET['profesor']) && $_GET['profesor'] != '')
+{
+    $query = "SELECT Marcajes.*, Nombre, Iniciales, Diasemana.Diasemana
+            FROM (Marcajes INNER JOIN Profesores ON Marcajes.ID_PROFESOR=Profesores.ID)
+                INNER JOIN Diasemana ON Marcajes.Dia=Diasemana.ID
+            WHERE Profesores.Activo=1 AND  ID_PROFESOR = '$_GET[profesor]'
+            ORDER BY Profesores.Nombre ASC LIMIT $page_size OFFSET $offset_var"; # "select id from shipment Limit ".$page_size." OFFSET ".$offset_var;
+}
+else
+{
+    $query = "SELECT Marcajes.*, Nombre, Iniciales, Diasemana.Diasemana
+            FROM (Marcajes INNER JOIN Profesores ON Marcajes.ID_PROFESOR=Profesores.ID)
+                INNER JOIN Diasemana ON Marcajes.Dia=Diasemana.ID
+            WHERE Profesores.Activo=1
+            ORDER BY Profesores.Nombre ASC LIMIT $page_size OFFSET $offset_var"; # "select id from shipment Limit ".$page_size." OFFSET ".$offset_var;
+}
 $result =  $class->query($query);
 
     while ($datos = $result->fetch_assoc())
