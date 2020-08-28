@@ -13,6 +13,12 @@ if(isset($_GET['Tipo']) && $_GET['Tipo'] == 'M')
     $titulotipo = "Mañana";
     $manana = 'selected';
 }
+elseif(isset($_GET['Tipo']) && $_GET['Tipo'] == 'C')
+{
+    $l = 6;
+    $titulotipo = "Mañana (COVID)";
+    $covid = 'selected';
+}
 else
 {
     $l = 5;
@@ -24,6 +30,7 @@ echo "<h3>Tipo de horario: $titulotipo</h3>";
 echo "<select id='select_tipo'>";
     echo "<option value='M' $manana>Horario de Mañana</option>";
     echo "<option value='T' $tarde>Horario de Tarde</option>";
+    echo "<option value='C' $covid>Horario excepcional (COVID)</option>";
 echo "<select>";
 echo '<br>';
 echo '<br>';
