@@ -50,8 +50,12 @@ if($_SESSION['Perfil'] === 'Admin')
 }
 else
 {
-    include($dirs['inc'] . 'filtro-edif-guardias.php');
-    include($dirs['inc'] . 'contenido-guardias.php');
+    echo "<div class='row'>";
+        echo "<div class='col-xs-12' style='text-align: center;'>";
+            include($dirs['inc'] . 'filtro-edif-guardias.php');
+            include($dirs['inc'] . 'contenido-guardias.php');
+        echo "</div>";
+    echo "</div>";
     include($dirs['inc'] . 'errors.php');
     include($dirs['inc'] . 'footer.php');
 }
