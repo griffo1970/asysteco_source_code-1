@@ -19,6 +19,7 @@ if($response = $class->query("SELECT ID, Iniciales, Nombre, Tutor, Activo, Susti
                     if($response2 = $class->query("SELECT DISTINCT $class->horarios.Grupo FROM $class->horarios WHERE $class->horarios.Grupo <> '' AND $class->horarios.Grupo <> 'Selec.' ORDER BY $class->horarios.Grupo"))
                     {
                         echo "<select id='grupo-tutor-select' class='entrada'>";
+                            echo "<option value='No'>No</option>";
                             while($fila = $response2->fetch_assoc())
                             {
                                 echo "<option value='$fila[Grupo]'>$fila[Grupo]</option>";
