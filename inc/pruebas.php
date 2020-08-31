@@ -17,3 +17,20 @@ if($_SESSION['Perfil'] === 'Admin')
         echo "</tr>";
     echo "</thead>";
     echo "<tbody>";
+   }
+   else
+   {
+       $ERR_MSG = "Solo es una prueba";
+   }
+ }
+ else
+ {
+    $ERR_MSG = "Solo es una prueba";
+
+ }
+}
+else
+{
+    $ERR_MSG = "Solo es una prueba";
+
+}
