@@ -8,15 +8,18 @@
   <link rel="stylesheet" href="css/bootstrap-3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/asysteco.css">
   <link rel="stylesheet" href="js/jquery-ui/jquery-ui.min.css">
+  <link rel="shortcut icon" href="resources/img/asysteco.ico" type="image/x-icon">
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery-ui/jquery-ui.min.js"></script>
+  <script src="js/datepicker_common.js"></script>
   <script src="js/flecha.js"></script>
-  <?php if(isset($extras)){ echo $extras;} ?>
-
-  <link rel="shortcut icon" href="resources/img/asysteco.ico" type="image/x-icon">
+  <script>
+    <?php if(isset($extras)){ echo $extras;} ?>
+  </script>
+  
   <style>
-  <?php if(isset($style)){ echo $style;} ?>
+    <?php if(isset($style)){ echo $style;} ?>
   </style>
 </head>
 <body>
@@ -91,7 +94,7 @@ echo '<nav class="navbar navbar-inverse navbar-fixed-top">';
           echo "<li class='dropdown $act_horario'><a class='dropdown-toggle' data-toggle='dropdown' href='#'><span class='glyphicon glyphicon-calendar'></span> Horario <span class='caret'></span></a>";
             echo '<ul class="dropdown-menu">';
               echo '<li><a href="index.php?ACTION=pruebas"><span class="glyphicon glyphicon-open"></span> Editar Guardias</a></li>';
-              echo '<li><a href="index.php?ACTION=import-horario"><span class="glyphicon glyphicon-open"></span> Importar horarios</a></li>';
+              echo '<li><a href="index.php?ACTION=horarios&OPT=import"><span class="glyphicon glyphicon-open"></span> Importar horarios</a></li>';
             echo '</ul>';
           echo '</li>';
 
