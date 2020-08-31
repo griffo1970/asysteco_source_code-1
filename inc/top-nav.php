@@ -90,6 +90,7 @@ echo '<nav class="navbar navbar-inverse navbar-fixed-top">';
 
           echo "<li class='dropdown $act_horario'><a class='dropdown-toggle' data-toggle='dropdown' href='#'><span class='glyphicon glyphicon-calendar'></span> Horario <span class='caret'></span></a>";
             echo '<ul class="dropdown-menu">';
+              echo '<li><a href="index.php?ACTION=pruebas"><span class="glyphicon glyphicon-open"></span> Editar Guardias</a></li>';
               echo '<li><a href="index.php?ACTION=import-horario"><span class="glyphicon glyphicon-open"></span> Importar horarios</a></li>';
             echo '</ul>';
           echo '</li>';

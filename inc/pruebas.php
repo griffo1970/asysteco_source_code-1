@@ -1,8 +1,19 @@
-<div class="container" style="margin-top: 75px;"></div>
 <?php
-echo "<textarea id='data' onclick='create()'>Alfonso;as,jhdgfikwy9283gi2yd3g923d23</textarea>";
-echo "<div id='qrimage'></div>";
-echo "<script>";
-include_once($dirs['public'] . "js/qrgenerator.js");
-echo "</script>";
-echo ""
+if($_SESSION['Perfil'] === 'Admin')
+{ 
+ if ($response = $class->query("SELECT $class->profesores.ID, $class->profesores.Nombre, $class->profesores.Iniciales, $class->perfiles.Tipo, $class->profesores.Activo, $class->profesores.Sustituido FROM $class->profesores INNER JOIN $class->perfiles ON $class->profesores.TIPO=$class->perfiles.ID"))
+ {
+   if ($response->num_rows > 0)
+   {
+    echo "<div id='guardias'></div>";
+    echo "<h2>Edición de Guardias</h2>";
+    echo "</br><table id='tabla_profesores' class='table table-hover'>";
+    echo "<thead>";
+        echo "<tr>";
+            echo "<th>ID</th>";
+            echo "<th>Nombre</th>";
+            echo "<th>Iniciales</th>";
+            echo "<th>Activo</th>";
+        echo "</tr>";
+    echo "</thead>";
+    echo "<tbody>";
